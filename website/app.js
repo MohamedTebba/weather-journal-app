@@ -14,9 +14,11 @@ const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov
 let d = new Date();
 let newDate = months[d.getMonth()]+'-'+ d.getDate()+'-'+ d.getFullYear();
 
+// Personal API Key for OpenWeatherMap API
 const key = '76c63639ba3c5a4b2d0b83a2c10aaf7f'
 // zip codes to test '94040, 63101'
 
+/* Function to GET Project Data */
 const getData = async (url) => {
     const res = await fetch(url)
     try{
@@ -27,6 +29,7 @@ const getData = async (url) => {
     }
 }
 
+/* Function to GET Web API Data*/
 const getWeatherData = async (key, zip = '94040', countryCode = '') => {
 
     const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},${countryCode}&APPID=${key}`)
@@ -44,6 +47,7 @@ const getWeatherData = async (key, zip = '94040', countryCode = '') => {
 
 }
 
+/* Function to POST data */
 const postData = async (url = '',data = {}) => {
         
         const response = await fetch(url, {
